@@ -19,7 +19,7 @@ spec:
         app: library-deployment
     spec:
       containers:
-      - image: steve001steve/library:v3
+      - image: steve001steve/library:v8
         name: library
         resources: {}
 status: {}
