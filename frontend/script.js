@@ -2,7 +2,7 @@
 const booksContainer = document.getElementById('books');
 const loading = document.getElementById('loading');
 
-fetch('http://localhost:8080:30146/api/books')
+fetch('http://localhost:8080/api/books')
     .then(response => response.json())
     .then(data => {
         loading.style.display = 'none'; // Hide loading spinner
