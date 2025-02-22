@@ -16,16 +16,17 @@ type Book struct {
 
 // books is a slice of Book structs (in-memory storage)
 var books = []Book{
-	{ID: "1", Title: "Designing Data-Intensive Applications", Author: "Martin Kleppmann", Year: 2017, Image: "https://images-na.ssl-images-amazon.com/images/I/51ZSpMl1-LL._SX379_BO1,204,203,200_.jpg"},
-	{ID: "2", Title: "The Go Programming Language", Author: "Alan A. A. Donovan", Year: 2015, Image: "https://images-na.ssl-images-amazon.com/images/I/41a6U2U+1bL._SX331_BO1,204,203,200_.jpg"},
-	{ID: "3", Title: "Clean Code", Author: "Robert C. Martin", Year: 2008, Image: "https://images-na.ssl-images-amazon.com/images/I/41xShlnTZTL._SX376_BO1,204,203,200_.jpg"},
-	{ID: "4", Title: "Kubernetes: Up and Running", Author: "Kelsey Hightower", Year: 2019, Image: "https://images-na.ssl-images-amazon.com/images/I/51ZSpMl1-LL._SX379_BO1,204,203,200_.jpg"},
-	{ID: "5", Title: "Cloud Native Go", Author: "Kevin Hoffman", Year: 2021, Image: "https://images-na.ssl-images-amazon.com/images/I/41a6U2U+1bL._SX331_BO1,204,203,200_.jpg"},
-	{ID: "6", Title: "Cloud Native Patterns", Author: "Cornelia Davis", Year: 2019, Image: "https://images-na.ssl-images-amazon.com/images/I/51ZSpMl1-LL._SX379_BO1,204,203,200_.jpg"},
-	{ID: "7", Title: "Kubernetes Patterns", Author: "Bilgin Ibryam", Year: 2020, Image: "https://images-na.ssl-images-amazon.com/images/I/51ZSpMl1-LL._SX379_BO1,204,203,200_.jpg"},
-	{ID: "8", Title: "Cloud Native DevOps with Kubernetes", Author: "John Arundel", Year: 2020, Image: "https://images-na.ssl-images-amazon.com/images/I/51ZSpMl1-LL._SX379_BO1,204,203,200_.jpg"},
-	{ID: "9", Title: "Kubernetes in Action", Author: "Marko Luksa", Year: 2018, Image: "https://images-na.ssl-images-amazon.com/images/I/51ZSpMl1-LL._SX379_BO1,204,203,200_.jpg"},
-	{ID: "10", Title: "Cloud Native Java", Author: "Josh Long", Year: 2017, Image: "https://images-na.ssl-images-amazon.com/images/I/51ZSpMl1-LL._SX379_BO1,204,203,200_.jpg"},
+	{ID: "1", Title: "Clean Code", Author: "Robert C. Martin", Year: 2008, Image: "https://images-na.ssl-images-amazon.com/images/I/41xShlnTZTL._SX376_BO1,204,203,200_.jpg"},
+	{ID: "2", Title: "Designing Data-Intensive Applications", Author: "Martin Kleppmann", Year: 2017, Image: "https://images-na.ssl-images-amazon.com/images/I/51ZSpMl1-LL._SX379_BO1,204,203,200_.jpg"},
+	{ID: "3", Title: "The Go Programming Language", Author: "Alan A. A. Donovan", Year: 2015, Image: "https://images-na.ssl-images-amazon.com/images/I/41a6U2U+1bL._SX331_BO1,204,203,200_.jpg"},
+	{ID: "4", Title: "Clean Code", Author: "Robert C. Martin", Year: 2008, Image: "https://images-na.ssl-images-amazon.com/images/I/41xShlnTZTL._SX376_BO1,204,203,200_.jpg"},
+	{ID: "5", Title: "Kubernetes: Up and Running", Author: "Kelsey Hightower", Year: 2019, Image: "https://images-na.ssl-images-amazon.com/images/I/51ZSpMl1-LL._SX379_BO1,204,203,200_.jpg"},
+	{ID: "6", Title: "Cloud Native Go", Author: "Kevin Hoffman", Year: 2021, Image: "https://images-na.ssl-images-amazon.com/images/I/41a6U2U+1bL._SX331_BO1,204,203,200_.jpg"},
+	{ID: "7", Title: "Cloud Native Patterns", Author: "Cornelia Davis", Year: 2019, Image: "https://images-na.ssl-images-amazon.com/images/I/51ZSpMl1-LL._SX379_BO1,204,203,200_.jpg"},
+	{ID: "8", Title: "Kubernetes Patterns", Author: "Bilgin Ibryam", Year: 2020, Image: "https://images-na.ssl-images-amazon.com/images/I/51ZSpMl1-LL._SX379_BO1,204,203,200_.jpg"},
+	{ID: "9", Title: "Cloud Native DevOps with Kubernetes", Author: "John Arundel", Year: 2020, Image: "https://images-na.ssl-images-amazon.com/images/I/51ZSpMl1-LL._SX379_BO1,204,203,200_.jpg"},
+	{ID: "1", Title: "Kubernetes in Action", Author: "Marko Luksa", Year: 2018, Image: "https://images-na.ssl-images-amazon.com/images/I/51ZSpMl1-LL._SX379_BO1,204,203,200_.jpg"},
+	{ID: "11", Title: "Cloud Native Java", Author: "Josh Long", Year: 2017, Image: "https://images-na.ssl-images-amazon.com/images/I/51ZSpMl1-LL._SX379_BO1,204,203,200_.jpg"},
 }
 
 // GetBooks returns the list of books
