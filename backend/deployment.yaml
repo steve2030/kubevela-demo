@@ -21,5 +21,6 @@ spec:
       containers:
       - image: steve001steve/library:v8
         name: library
+        imagePullPolicy: Always
         resources: {}
 status: {}
