@@ -9,29 +9,27 @@ fetch('http://localhost:8080/api/books')
 
         // Render books
         data.forEach(book => {
-            const bookElement = document.createElement('div');
-            bookElement.className = 'book';
-            bookElement.innerHTML = `
+            const bookCard = document.createElement('div');
+            bookCard.className = 'book-card';
+            bookCard.innerHTML = `
                 <img src="${book.image}" alt="${book.title}">
-                <div>
-                    <h3>${book.title}</h3>
-                    <p><strong>Author:</strong> ${book.author}</p>
-                    <p><strong>Year:</strong> ${book.year}</p>
-                </div>
+                <h3>${book.title}</h3>
+                <p><strong>Author:</strong> ${book.author}</p>
+                <p><strong>Year:</strong> ${book.year}</p>
             `;
-            booksContainer.appendChild(bookElement);
+            booksContainer.appendChild(bookCard);
         });
 
         // Add search functionality
         const searchInput = document.getElementById('search');
         searchInput.addEventListener('input', (event) => {
             const searchTerm = event.target.value.toLowerCase();
-            const books = document.querySelectorAll('.book');
+            const books = document.querySelectorAll('.book-card');
             books.forEach(book => {
                 const title = book.querySelector('h3').textContent.toLowerCase();
                 const author = book.querySelector('p').textContent.toLowerCase();
                 if (title.includes(searchTerm) || author.includes(searchTerm)) {
-                    book.style.display = 'flex';
+                    book.style.display = 'block';
                 } else {
                     book.style.display = 'none';
                 }
