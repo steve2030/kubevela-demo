@@ -26,8 +26,8 @@ jobs:
 
       # Step 3: Build the Docker image
       - name: Build Docker image
-        run: docker build -t steve001steve/library:latest ./backend
+        run: docker build -t ${{ secrets.DOCKER_HUB_USERNAME }}/library:latest ./backend
 
       # Step 4: Push the Docker image to Docker Hub
       - name: Push Docker image
-        run: docker push steve001steve/library:latest
+        run: docker push ${{ secrets.DOCKER_HUB_USERNAME }}/library:latest
