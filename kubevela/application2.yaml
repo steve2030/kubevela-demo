@@ -1,0 +1,60 @@
+apiVersion: core.oam.dev/v1beta1
+kind: Application
+metadata:
+  name: library-app2
+  namespace: vela-system
+spec:
+  components:
+    - name: frontend
+      type: webservice
+      properties:
+        image: "steve001steve/library-frontend:latest"
+        ports:
+          - port: 80
+            expose: true
+      traits:
+        - type: scaler
+          properties:
+            replicas: 2
+
+    - name: backend-api
+      type: webservice
+      properties:
+        image: "steve001steve/library:latest"
+        ports:
+          - port: 8080
+            expose: true
+      traits:
+        - type: scaler
+          properties:
+            replicas: 2
+
+  # Define deployment policies for each environment
+  policies:
+    - name: target-dev
+      type: topology
+      properties:
+        clusters: ["local"]   # Default cluster
+        namespace: "dev"      # Deploy to 'dev' namespace
+
+    - name: target-uat
+      type: topology
+      properties:
+        clusters: ["local"]
+        namespace: "uat"      # Deploy to 'uat' namespace
+
+  # Define workflow for step-by-step deployment
+  workflow:
+    steps:
+      - name: deploy-to-dev
+        type: deploy
+        properties:
+          policies: ["target-dev"]
+
+      # - name: manual-approval
+      #   type: suspend  # Require approval before deploying to UAT
+
+      - name: deploy-to-uat
+        type: deploy
+        properties:
+          policies: ["target-uat"]

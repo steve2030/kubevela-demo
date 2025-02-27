@@ -1,0 +1,49 @@
+apiVersion: core.oam.dev/v1beta1
+kind: Application
+metadata:
+  name: library-backend-api
+  namespace: dev
+spec:
+  components:
+    - name: library-backend  # Name of your component
+      type: webservice  # Type of component (KubeVela will create a Deployment and Service)
+      properties:
+        image: steve001steve/library:latest  # Replace with your Docker image
+        ports:
+        - port: 8080
+          expose: true
+  
+      traits:
+        # Scaler trait to set the number of replicas
+        - type: scaler
+          properties:
+            replicas: 2  # Number of replicas
+
+        # Rollout trait for progressive rollouts
+        # - type: rollout
+        #   properties:
+        #     batch: 1  # Number of replicas to update in each batch
+        #     interval: "30s"  # Wait 30 seconds between batches
+
+        # Ingress trait to expose your app externally
+        - type: ingress
+          properties:
+            domain: library-backend.local  # Domain for accessing your app
+            http:
+              "/": 8080  # Route traffic to port 8080
+
+        # Metrics trait to enable Prometheus metrics scraping
+        # - type: metrics
+        #   properties:
+        #     enabled: true  # Enable metrics scraping
+
+        # Autoscaler trait to enable automatic scaling
+        # - type: autoscaler
+        #   properties:
+        #     minReplicas: 2  # Minimum number of replicas
+        #     maxReplicas: 10  # Maximum number of replicas
+       #     cpuPercent: 50  # Scale based on CPU usage (50% threshold)
+
+  # outputs:  # Top-level outputs section
+  #   - name: endpoint
+  #     valueFrom: output.value.my-component.library-backend
