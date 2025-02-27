@@ -1,0 +1,43 @@
+apiVersion: core.oam.dev/v1beta1
+kind: Application
+metadata:
+  name: library-app1
+  namespace: dev
+spec:
+  components:
+    # Frontend Component
+    - name: frontend
+      type: webservice
+      properties:
+        image: "steve001steve/library-frontend:latest"
+        ports:
+          - port: 80
+            expose: true
+        
+      traits:
+        # Scaler trait to set the number of replicas
+        - type: scaler
+          properties:
+            replicas: 1
+
+    # Backend Component
+    - name: backend-api
+      type: webservice
+      properties:
+        image: "steve001steve/library:latest"
+        ports:
+          - port: 8080
+            expose: true
+        # resources:
+        #   requests:
+        #     memory: "64Mi"
+        #     cpu: "250m"
+        #   limits:
+        #     memory: "128Mi"
+        #     cpu: "500m"
+      traits:
+        - type: scaler
+          properties:
+            replicas: 1
+
+    
