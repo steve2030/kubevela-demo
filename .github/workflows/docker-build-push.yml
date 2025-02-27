@@ -24,10 +24,18 @@ jobs:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_TOKEN }}
 
-      # Step 3: Build the Docker image
+      
+      # Step 3: Build the Docker image for the frontend
       - name: Build Docker image
-        run: docker build -t ${{ secrets.DOCKER_HUB_USERNAME }}/library:latest ./backend
+        run: docker build -t ${{ secrets.DOCKER_HUB_USERNAME }}/library-frontend:latest ./frontend
+      # Step 3: Build the Docker image for the Backend
+      - name: Build Docker image
+        run: docker build -t ${{ secrets.DOCKER_HUB_USERNAME }}/library-backend:latest ./backend
+            
 
-      # Step 4: Push the Docker image to Docker Hub
+      # Step 4: Push the Frontend Docker image to Docker Hub
       - name: Push Docker image
-        run: docker push ${{ secrets.DOCKER_HUB_USERNAME }}/library:latest
+        run: docker push ${{ secrets.DOCKER_HUB_USERNAME }}/library-frontend:latest
+      # Step 4: Push the backend Docker image to Docker Hub
+      - name: Push Docker image
+        run: docker push ${{ secrets.DOCKER_HUB_USERNAME }}/library-backend:latest
